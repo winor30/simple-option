@@ -74,7 +74,7 @@ pub fn try_transfer(
 
 pub fn try_execute(deps: DepsMut, _env: Env, info: MessageInfo) -> Result<Response, ContractError> {
     // get state
-    let mut state: State = config(deps.storage).load()?;
+    let state: State = config(deps.storage).load()?;
     // ensure msg.sender is owner
     if info.sender != state.owner {
         return Err(ContractError::Unauthorized {});
@@ -115,7 +115,7 @@ pub fn try_execute(deps: DepsMut, _env: Env, info: MessageInfo) -> Result<Respon
 
 pub fn try_burn(deps: DepsMut, _env: Env, info: MessageInfo) -> Result<Response, ContractError> {
     // get state
-    let mut state: State = config(deps.storage).load()?;
+    let state: State = config(deps.storage).load()?;
 
     // ensure not expired
     if _env.block.height < state.expires {

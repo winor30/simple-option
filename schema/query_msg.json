@@ -5,13 +5,14 @@
     {
       "type": "object",
       "required": [
-        "get_count"
+        "config"
       ],
       "properties": {
-        "get_count": {
+        "config": {
           "type": "object"
         }
-      }
+      },
+      "additionalProperties": false
     }
   ]
 }
